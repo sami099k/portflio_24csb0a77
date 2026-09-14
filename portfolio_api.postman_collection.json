@@ -1,0 +1,173 @@
+{
+  "info": {
+    "_postman_id": "a2b3c4d5-e6f7-4890-a1b2-c3d4e5f6a7b8",
+    "name": "Portfolio API - Assignment 3",
+    "description": "Postman Collection for React Portfolio Backend API testing covering endpoints B1 to B7 including success and error failure cases.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "B1 - Health Check (GET /)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/",
+          "host": ["{{baseUrl}}"],
+          "path": [""]
+        },
+        "description": "Base route to confirm API is running. Returns HTTP 200 { \"status\": \"ok\" }."
+      },
+      "response": []
+    },
+    {
+      "name": "B2 - Get All Projects (GET /api/projects)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/projects",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "projects"]
+        },
+        "description": "Returns HTTP 200 with JSON array of project objects."
+      },
+      "response": []
+    },
+    {
+      "name": "B3 - Get Single Project (Valid ID)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/projects/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "projects", "1"]
+        },
+        "description": "Returns HTTP 200 with matching project object."
+      },
+      "response": []
+    },
+    {
+      "name": "B3 - Get Single Project (404 Not Found)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/projects/999",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "projects", "999"]
+        },
+        "description": "Failure test case: Non-existent ID returns HTTP 404 JSON { \"error\": \"Project not found\" }."
+      },
+      "response": []
+    },
+    {
+      "name": "B4 - Submit Contact Form (Success 201)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Alice Smith\",\n  \"email\": \"alice@example.com\",\n  \"subject\": \"Project Inquiry\",\n  \"message\": \"Hello, I am interested in collaborating on a web project!\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/contact",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "contact"]
+        },
+        "description": "Valid submission returns HTTP 201 with confirmation payload and persists data."
+      },
+      "response": []
+    },
+    {
+      "name": "B4 - Submit Contact Form (400 Missing Fields)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"alice@example.com\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/contact",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "contact"]
+        },
+        "description": "Failure test case: Missing name and message returns HTTP 400 with field-specific error details."
+      },
+      "response": []
+    },
+    {
+      "name": "B4 - Submit Contact Form (400 Invalid Email Format)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Bob\",\n  \"email\": \"invalid-email-without-at-symbol\",\n  \"message\": \"Testing invalid email\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/contact",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "contact"]
+        },
+        "description": "Failure test case: Invalid email format (missing '@') returns HTTP 400 with clear error message."
+      },
+      "response": []
+    },
+    {
+      "name": "B5 - List Contact Submissions (GET /api/contact)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/contact",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "contact"]
+        },
+        "description": "Open verification endpoint. Returns HTTP 200 with JSON array of all stored contact submissions."
+      },
+      "response": []
+    },
+    {
+      "name": "B6 - Catch-all 404 Undefined Route",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/doesnotexist",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "doesnotexist"]
+        },
+        "description": "Undefined route returns HTTP 404 JSON { \"error\": \"Route not found\" }."
+      },
+      "response": []
+    }
+  ]
+}
