@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "a2b3c4d5-e6f7-4890-a1b2-c3d4e5f6a7b8",
     "name": "Portfolio API - Assignment 3",
-    "description": "Postman Collection for React Portfolio Backend API testing covering endpoints B1 to B7 including success and error failure cases.",
+    "description": "Postman Collection for React Portfolio Backend API testing covering endpoints B1 to B7 including success and failure cases.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
@@ -20,12 +20,44 @@
         "header": [],
         "url": {
           "raw": "{{baseUrl}}/",
-          "host": ["{{baseUrl}}"],
-          "path": [""]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            ""
+          ]
         },
         "description": "Base route to confirm API is running. Returns HTTP 200 { \"status\": \"ok\" }."
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 OK - Health Check",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"status\": \"ok\"\n}"
+        }
+      ]
     },
     {
       "name": "B2 - Get All Projects (GET /api/projects)",
@@ -34,12 +66,46 @@
         "header": [],
         "url": {
           "raw": "{{baseUrl}}/api/projects",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "projects"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "projects"
+          ]
         },
         "description": "Returns HTTP 200 with JSON array of project objects."
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 OK - All Projects List",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "projects"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n  {\n    \"id\": \"1\",\n    \"title\": \"StudyNotion\",\n    \"description\": \"A full-stack learning management system built on the MERN stack...\",\n    \"skills\": [\n      \"MongoDB.svg\",\n      \"Express.png\",\n      \"React.png\",\n      \"NodeJs.svg\",\n      \"Redux.svg\",\n      \"Tailwind.png\"\n    ],\n    \"techStack\": [\n      \"MongoDB\",\n      \"Express\",\n      \"React\",\n      \"Node.js\",\n      \"Redux\",\n      \"Tailwind CSS\"\n    ],\n    \"image\": \"Project1.png\",\n    \"githubLink\": \"https://github.com/sami099k\",\n    \"liveLink\": \"#\",\n    \"link\": \"https://github.com/sami099k\"\n  }\n]"
+        }
+      ]
     },
     {
       "name": "B3 - Get Single Project (Valid ID)",
@@ -48,12 +114,48 @@
         "header": [],
         "url": {
           "raw": "{{baseUrl}}/api/projects/1",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "projects", "1"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "projects",
+            "1"
+          ]
         },
         "description": "Returns HTTP 200 with matching project object."
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 OK - Single Project Detail",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projects/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "projects",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"id\": \"1\",\n  \"title\": \"StudyNotion\",\n  \"description\": \"A full-stack learning management system...\",\n  \"skills\": [\n    \"MongoDB.svg\",\n    \"Express.png\",\n    \"React.png\",\n    \"NodeJs.svg\",\n    \"Redux.svg\",\n    \"Tailwind.png\"\n  ],\n  \"image\": \"Project1.png\",\n  \"githubLink\": \"https://github.com/sami099k\"\n}"
+        }
+      ]
     },
     {
       "name": "B3 - Get Single Project (404 Not Found)",
@@ -62,12 +164,48 @@
         "header": [],
         "url": {
           "raw": "{{baseUrl}}/api/projects/999",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "projects", "999"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "projects",
+            "999"
+          ]
         },
         "description": "Failure test case: Non-existent ID returns HTTP 404 JSON { \"error\": \"Project not found\" }."
       },
-      "response": []
+      "response": [
+        {
+          "name": "404 Not Found - Invalid Project ID",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projects/999",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "projects",
+                "999"
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"error\": \"Project not found\"\n}"
+        }
+      ]
     },
     {
       "name": "B4 - Submit Contact Form (Success 201)",
@@ -86,12 +224,55 @@
         },
         "url": {
           "raw": "{{baseUrl}}/api/contact",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "contact"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "contact"
+          ]
         },
         "description": "Valid submission returns HTTP 201 with confirmation payload and persists data."
       },
-      "response": []
+      "response": [
+        {
+          "name": "201 Created - Submission Success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alice Smith\",\n  \"email\": \"alice@example.com\",\n  \"subject\": \"Project Inquiry\",\n  \"message\": \"Hello, I am interested in collaborating on a web project!\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/contact",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "contact"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"message\": \"Submission received successfully\",\n  \"data\": {\n    \"id\": \"1789406026838\",\n    \"name\": \"Alice Smith\",\n    \"email\": \"alice@example.com\",\n    \"subject\": \"Project Inquiry\",\n    \"message\": \"Hello, I am interested in collaborating on a web project!\",\n    \"submittedAt\": \"2026-09-14T17:13:46.838Z\"\n  }\n}"
+        }
+      ]
     },
     {
       "name": "B4 - Submit Contact Form (400 Missing Fields)",
@@ -110,12 +291,55 @@
         },
         "url": {
           "raw": "{{baseUrl}}/api/contact",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "contact"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "contact"
+          ]
         },
         "description": "Failure test case: Missing name and message returns HTTP 400 with field-specific error details."
       },
-      "response": []
+      "response": [
+        {
+          "name": "400 Bad Request - Missing Required Fields",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"alice@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/contact",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "contact"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"error\": \"Validation failed\",\n  \"details\": {\n    \"name\": \"Name is required\",\n    \"message\": \"Message is required\"\n  },\n  \"message\": \"Name is required, Message is required\"\n}"
+        }
+      ]
     },
     {
       "name": "B4 - Submit Contact Form (400 Invalid Email Format)",
@@ -134,12 +358,55 @@
         },
         "url": {
           "raw": "{{baseUrl}}/api/contact",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "contact"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "contact"
+          ]
         },
         "description": "Failure test case: Invalid email format (missing '@') returns HTTP 400 with clear error message."
       },
-      "response": []
+      "response": [
+        {
+          "name": "400 Bad Request - Invalid Email Format",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Bob\",\n  \"email\": \"invalid-email-without-at-symbol\",\n  \"message\": \"Testing invalid email\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/contact",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "contact"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"error\": \"Validation failed\",\n  \"details\": {\n    \"email\": \"Invalid email format (must contain @)\"\n  },\n  \"message\": \"Invalid email format (must contain @)\"\n}"
+        }
+      ]
     },
     {
       "name": "B5 - List Contact Submissions (GET /api/contact)",
@@ -148,12 +415,46 @@
         "header": [],
         "url": {
           "raw": "{{baseUrl}}/api/contact",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "contact"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "contact"
+          ]
         },
         "description": "Open verification endpoint. Returns HTTP 200 with JSON array of all stored contact submissions."
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 OK - All Submissions List",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/contact",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "contact"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n  {\n    \"id\": \"1789406026838\",\n    \"name\": \"Alice Smith\",\n    \"email\": \"alice@example.com\",\n    \"subject\": \"Project Inquiry\",\n    \"message\": \"Hello, I am interested in collaborating on a web project!\",\n    \"submittedAt\": \"2026-09-14T17:13:46.838Z\"\n  }\n]"
+        }
+      ]
     },
     {
       "name": "B6 - Catch-all 404 Undefined Route",
@@ -162,12 +463,46 @@
         "header": [],
         "url": {
           "raw": "{{baseUrl}}/api/doesnotexist",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "doesnotexist"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "doesnotexist"
+          ]
         },
         "description": "Undefined route returns HTTP 404 JSON { \"error\": \"Route not found\" }."
       },
-      "response": []
+      "response": [
+        {
+          "name": "404 Not Found - Undefined Route",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/doesnotexist",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "doesnotexist"
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"error\": \"Route not found\"\n}"
+        }
+      ]
     }
   ]
 }
